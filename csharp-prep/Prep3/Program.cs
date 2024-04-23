@@ -4,6 +4,79 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep3 World!");
+        // For Parts 1 and 2, where the user specified the number...
+        // Console.Write("What is the magic number? ");
+        // int magicNumber = int.Parse(Console.ReadLine());
+        
+        // For Part 3, where we use a random number
+        Random randomGenerator = new Random();
+        int magicNumber = randomGenerator.Next(1, 101);
+
+        int guess = -1;
+        int count = 0;  
+        int new_guess = 0;
+        int newCount = 0; 
+
+        // We could also use a do-while loop here...
+        while (guess != magicNumber)
+        {
+            Console.Write("What is your guess? ");
+            guess = int.Parse(Console.ReadLine());
+            count += 1;
+
+            if (magicNumber > guess)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (magicNumber < guess)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("You guessed it!");
+                Console.WriteLine($"It took you {count} guesses.");
+            }
+        }
+        
+        string option = "";
+        Console.Write("Like to replay the game. Answer 'yes' or 'no'? ");
+        option = Console.ReadLine();
+        option.ToLower();
+        new_guess = 0;
+
+        if(option == "no")
+        {
+            Console.Write("Goodbye and have a great day!");
+        }     
+    
+        while (option == "yes")
+        {
+            while (new_guess != magicNumber)
+            {
+                Console.Write("What is your guess? ");
+                new_guess = int.Parse(Console.ReadLine());
+                newCount += 1;
+
+                if (magicNumber > new_guess)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (magicNumber < new_guess)
+                {
+                    Console.WriteLine("Lower");
+                }
+                else
+                {
+                    Console.WriteLine("You guessed it!");
+                    Console.WriteLine($"It took you {count} guesses.");
+                }
+            }
+            option = "";
+            Console.Write("Like to replay the game. Answer 'yes' or 'no'? ");
+        option = Console.ReadLine();
+        option.ToLower();
+        new_guess = 0;
+        }
     }
 }
