@@ -40,7 +40,7 @@ class Program
         }
         
         string option = "";
-        Console.Write("Like to replay the game. Answer 'yes' or 'no'? ");
+        Console.Write("Like to replay the game?. Answer 'yes' or 'no' ");
         option = Console.ReadLine();
         option.ToLower();
         new_guess = 0;
@@ -73,7 +73,7 @@ class Program
                 }
             }
             option = "";
-            Console.Write("Like to replay the game. Answer 'yes' or 'no'? ");
+            Console.Write("Like to replay the game?. Answer 'yes' or 'no' ");
         option = Console.ReadLine();
         option.ToLower();
         new_guess = 0;
