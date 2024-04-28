@@ -98,7 +98,6 @@ class Program
             Console.WriteLine(list[index]);
             
             return promptIndex;
-
         }
 
         static string Entry()
