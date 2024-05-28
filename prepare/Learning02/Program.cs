@@ -19,8 +19,7 @@ class Program
             Console.Write(scripture + " ");          
         }
         
-        Console.WriteLine("\nPress enter to continue or type 'quit' to finish: ");
-        userInput = Console.ReadLine();
+        userPrompt();
 
         while (userInput.ToLower() != "quit")
         {
@@ -35,8 +34,7 @@ class Program
                         newWord.Add(scripture);
                 }
                 Console.WriteLine(string.Join(" ", newWord));
-                Console.WriteLine("\nPress enter to continue or type 'quit' to finish: ");
-                userInput = Console.ReadLine();
+                userPrompt();
             }
             else
             {
@@ -49,5 +47,12 @@ class Program
     static void clearConsole()
     {
         Console.Clear();
+    }
+
+    static void userPrompt()
+    {
+        string userInput = "";
+        Console.WriteLine("\nPress enter to continue or type 'quit' to finish: ");
+        userInput = Console.ReadLine();
     }
 }
