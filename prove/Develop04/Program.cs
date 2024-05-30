@@ -1,4 +1,4 @@
-//Creativity | I generated the questions randomly. This is one of the most difficult projects for me this semester but I thank God I managed to solve it and I have a lot from it. Thank you for the knowledge.
+//Creativity | I generated the questions randomly. This is one of the most challenging projects for me this semester but I thank God I managed to solve it and I have a lot from it. Thank you for the knowledge.
 
 using System;
 
