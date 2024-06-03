@@ -6,24 +6,24 @@ class Program
     static void Main(string[] args)
     {
         // Create addresses
-        Address usaAddress = new Address("123 Main St", "Anytown", "CA", "USA");
-        Address nonUsaAddress = new Address("456 Elm St", "Othertown", "ON", "Canada");
+        Address _firstAddress = new Address("4 Main road", "Melville", "Johannesburg", "R.S.A");
+        Address _secondAddress = new Address("6 Owode estate, Apata", "Ibadan", "Oyo", "Nigeria");
 
         // Create customers
-        Customer usaCustomer = new Customer("John Doe", usaAddress);
-        Customer nonUsaCustomer = new Customer("Jane Smith", nonUsaAddress);
+        Customer _firstCustomer = new Customer("Oreoluwa Adelabu", _firstAddress);
+        Customer _secondCustomer = new Customer("Blessing Okon", _secondAddress);
 
         // Create products
-        Product product1 = new Product("Laptop", "1001", 1200, 1);
-        Product product2 = new Product("Mouse", "1002", 30, 2);
-        Product product3 = new Product("Keyboard", "1003", 50, 1);
+        Product product1 = new Product("Bag", "1001", 1900, 1);
+        Product product2 = new Product("Sandal", "1002", 20, 2);
+        Product product3 = new Product("Gown", "1003", 15, 1);
 
         // Create orders
-        Order order1 = new Order(usaCustomer);
+        Order order1 = new Order(_firstCustomer);
         order1.AddProduct(product1);
         order1.AddProduct(product2);
 
-        Order order2 = new Order(nonUsaCustomer);
+        Order order2 = new Order(_secondCustomer);
         order2.AddProduct(product2);
         order2.AddProduct(product3);
 
@@ -31,12 +31,12 @@ class Program
         Console.WriteLine("Order 1:");
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine("Total Cost: $" + order1.GetTotalCost());
+        Console.WriteLine("Total Cost: R" + order1.GetTotalCost());
 
         Console.WriteLine("\nOrder 2:");
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine("Total Cost: $" + order2.GetTotalCost());
+        Console.WriteLine("Total Cost: N" + order2.GetTotalCost());
     }
 }
 
@@ -45,25 +45,25 @@ class Address
 {
     private string Street { get; set; }
     private string City { get; set; }
-    private string StateProvince { get; set; }
+    private string State { get; set; }
     private string Country { get; set; }
 
-    public Address(string street, string city, string stateProvince, string country)
+    public Address(string street, string city, string state, string country)
     {
         Street = street;
         City = city;
-        StateProvince = stateProvince;
+        State = state;
         Country = country;
     }
 
-    public bool IsInUSA()
+    public bool Country1()
     {
-        return Country.Equals("USA", StringComparison.OrdinalIgnoreCase);
+        return Country.Equals("Republic of South Africa", StringComparison.OrdinalIgnoreCase);
     }
 
     public string GetAddressDetails()
     {
-        return $"{Street}, {City}, {StateProvince}, {Country}";
+        return $"{Street}, {City}, {State}, {Country}";
     }
 }
 
@@ -78,9 +78,9 @@ class Customer
         Address = address;
     }
 
-    public bool IsInUSA()
+    public bool Country1()
     {
-        return Address.IsInUSA();
+        return Address.Country1();
     }
 
     public string GetName()
@@ -143,7 +143,7 @@ class Order
         {
             totalCost += product.GetTotalCost();
         }
-        totalCost += Customer.IsInUSA() ? 5 : 35; // Shipping cost
+        totalCost += Customer.Country1() ? 5 : 35; // Shipping cost
         return totalCost;
     }
 
