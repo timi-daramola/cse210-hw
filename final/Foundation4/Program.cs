@@ -53,7 +53,7 @@ class Activity
     {
         return $"{Date:dd MMM yyyy} - Unknown Activity ({LengthInMinutes} min)";
     }
-}
+} 
 
 class Running : Activity
 {
