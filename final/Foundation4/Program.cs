@@ -51,7 +51,7 @@ class Activity
 
     public virtual string GetSummary()
     {
-        return $"{Date:dd MMM yyyy} - Unknown Activity ({LengthInMinutes} min) ";
+        return $"{Date:dd MMM yyyy} - Unknown Activity ({LengthInMinutes} min)";
     }
 }
 
