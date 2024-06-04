@@ -7,9 +7,13 @@ class Program
     {
         List<Activity> activities = new List<Activity>();
 
-        activities.Add(new Running(DateTime.Parse("2022-11-03"), 30, 3.0));
-        activities.Add(new Cycling(DateTime.Parse("2022-11-03"), 45, 15.0));
-        activities.Add(new Swimming(DateTime.Parse("2022-11-03"), 60, 10));
+        Running runningActivity = new Running(DateTime.Parse("2022-11-03"), 30, 3.0);
+        Cycling cyclingActivity = new Cycling(DateTime.Parse("2022-11-03"), 45, 15.0);
+        Swimming swimmingActivity = new Swimming(DateTime.Parse("2022-11-03"), 60, 10);
+
+        activities.Add(runningActivity);
+        activities.Add(cyclingActivity);
+        activities.Add(swimmingActivity);
 
         foreach (var activity in activities)
         {
@@ -32,17 +36,17 @@ class Activity
 
     public virtual double GetDistance()
     {
-        return 0; // Base class doesn't define distance
+        return 0;
     }
 
     public virtual double GetSpeed()
     {
-        return 0; // Base class doesn't define speed
+        return 0; 
     }
 
     public virtual double GetPace()
     {
-        return 0; // Base class doesn't define pace
+        return 0; 
     }
 
     public virtual string GetSummary()
@@ -67,7 +71,7 @@ class Running : Activity
 
     public override double GetSpeed()
     {
-        return Distance / LengthInMinutes * 60; // mph
+        return Distance / LengthInMinutes * 60;
     }
 
     public override double GetPace()
@@ -97,12 +101,12 @@ class Cycling : Activity
 
     public override double GetDistance()
     {
-        return Speed * LengthInMinutes / 60; // miles
+        return Speed * LengthInMinutes / 60;
     }
 
     public override double GetPace()
     {
-        return 60 / Speed; // minutes per mile
+        return 60 / Speed; 
     }
 
     public override string GetSummary()
@@ -122,12 +126,12 @@ class Swimming : Activity
 
     public override double GetDistance()
     {
-        return Laps * 50 / 1000 * 0.62; // miles
+        return Laps * 50 / 1000 * 0.62; 
     }
 
     public override double GetSpeed()
     {
-        return GetDistance() / LengthInMinutes * 60; // mph
+        return GetDistance() / LengthInMinutes * 60;
     }
 
     public override double GetPace()
