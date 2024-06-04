@@ -4,13 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Address concertAddress = new Address("123 Main St", "Anytown", "CA", "USA");
-        Address conferenceAddress = new Address("456 Elm St", "Othertown", "NY", "USA");
-        Address webinarAddress = new Address("789 Oak St", "Anothertown", "TX", "USA");
+        Address concertAddress = new Address("Pro-dome event center", "Northriding", "Gauteng", "South Africa");
+        Address conferenceAddress = new Address("78 Terrace road, Bezuidenhout Valley", "Johannesburg", "Gauteng", "South Africa");
+        Address webinarAddress = new Address("55 President Street", "Johannesburg", "Gauteng", "South Africa");
 
-        Event concert = new Concert("Rock Night", DateTime.Parse("2024-06-15"), concertAddress, "The Rock Band");
-        Event conference = new Conference("Tech Summit", DateTime.Parse("2024-07-20"), conferenceAddress, "Emerging Technologies");
-        Event webinar = new Webinar("Introduction to AI", DateTime.Parse("2024-08-10"), webinarAddress, "Dr. AI Expert");
+        Event concert = new Concert("Worship Night", DateTime.Parse("2024-06-15"), concertAddress, "Soweto Choir");
+        Event conference = new Conference("Night of Entertainment", DateTime.Parse("2024-07-20"), conferenceAddress, "The Talented");
+        Event webinar = new Webinar("Comedy Night", DateTime.Parse("2024-08-10"), webinarAddress, "Trevor Noah");
 
         Console.WriteLine("Concert Marketing Message:");
         Console.WriteLine(concert.GenerateMarketingMessage());
@@ -34,20 +34,20 @@ class Address
 {
     private string Street { get; }
     private string City { get; }
-    private string StateProvince { get; }
+    private string Province { get; }
     private string Country { get; }
 
-    public Address(string street, string city, string stateProvince, string country)
+    public Address(string street, string city, string province, string country)
     {
         Street = street;
         City = city;
-        StateProvince = stateProvince;
+        Province = province;
         Country = country;
     }
 
     public string GetFullAddress()
     {
-        return $"{Street}, {City}, {StateProvince}, {Country}";
+        return $"{Street}, {City}, {Province}, {Country}";
     }
 }
 
@@ -101,7 +101,7 @@ class Conference : Event
 
     public override string GenerateMarketingMessage()
     {
-        return $"Attend our conference on {Topic} and gain valuable insights!";
+        return $"Attend our entertainment show by {Topic} and have a memorable experience!";
     }
 }
 
@@ -116,6 +116,6 @@ class Webinar : Event
 
     public override string GenerateMarketingMessage()
     {
-        return $"Join our webinar featuring {Speaker} and learn from the expert!";
+        return $"Join our comedy show featuring {Speaker} and enjoy endless laughter!";
     }
 }
